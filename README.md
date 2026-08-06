@@ -82,12 +82,11 @@ Currently rebuilding my C# / Unity foundation and learning PHP with Laravel.
 ## ⋆ activity
 
 <p align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=asuzey&show_icons=true&hide_border=true&bg_color=0C1428&title_color=7FE7DF&icon_color=6FB8FF&text_color=8FA8C8" alt="ASU's GitHub statistics" />
-  <img height="165" src="https://streak-stats.demolab.com/?user=asuzey&hide_border=true&background=0C1428&stroke=1E3A5F&ring=7FE7DF&fire=FF9FD0&currStreakLabel=6FB8FF&sideLabels=8FA8C8&currStreakNum=EAF4FF&sideNums=EAF4FF&dates=5E799E" alt="Contribution streak" />
-</p>
-
-<p align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=asuzey&layout=compact&hide_border=true&bg_color=0C1428&title_color=7FE7DF&text_color=8FA8C8" alt="Most used languages" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/stats/dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/stats/light.svg">
+    <img src="assets/stats/dark.svg" alt="GitHub statistics for asuzey" width="100%">
+  </picture>
 </p>
 
 <p align="center">
@@ -97,6 +96,8 @@ Currently rebuilding my C# / Unity foundation and learning PHP with Laravel.
 ### ⋆ what i've been up to
 
 <!--START_SECTION:activity-->
+1. &#127793; Created branch `main` in [asuzey/asuzey](https://github.com/asuzey/asuzey)
+2. &#11088; Starred [cemdenizexe/cemdenizexe](https://github.com/cemdenizexe/cemdenizexe)
 <!--END_SECTION:activity-->
 
 <p align="center">

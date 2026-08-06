@@ -1,11 +1,15 @@
 name: snake
 
-# Runs on a timer only. The activity workflow commits to main every half hour,
-# so triggering on push would redraw the snake far more often than it changes.
+# A push trigger is safe here: commits pushed by a workflow using GITHUB_TOKEN
+# do not start further workflow runs, so the profile job's own commits cannot
+# put this into a loop.
 on:
   schedule:
     - cron: "0 3 * * *"
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
