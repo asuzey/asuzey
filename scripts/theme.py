@@ -40,9 +40,41 @@ FONT = "'JetBrains Mono','Fira Code','SFMono-Regular',ui-monospace,Consolas,'Lib
 # ----------------------------------------------------------------- helpers ---
 
 def esc(text: str) -> str:
-    """Escape only what SVG needs; entities in the content are already encoded."""
+    """Escape markup, but leave numeric entities the caller already wrote alone.
+
+    Only safe for hand-written strings. Never use it on generated content: the
+    ASCII ramp contains "&#", which this would turn back into a broken entity.
+    Use esc_literal for anything the code produced.
+    """
     return (text.replace("&", "&amp;").replace("&amp;#", "&#")
                 .replace("<", "&lt;").replace(">", "&gt;"))
+
+
+def esc_literal(text: str) -> str:
+    """Escape text that is definitely not markup, with no entity passthrough."""
+    return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def write_svg(path, markup: str) -> None:
+    """Write an SVG, refusing to publish one that is not well-formed XML.
+
+    A malformed SVG does not degrade -- browsers decline to draw any of it, so
+    it fails as a completely blank image. Catching it here means a broken file
+    can never reach the README.
+    """
+    from xml.etree import ElementTree
+
+    try:
+        ElementTree.fromstring(markup)
+    except ElementTree.ParseError as err:
+        position = getattr(err, "position", None)
+        context = ""
+        if position:
+            _, column = position
+            context = f"\n  near: {markup[max(0, column - 60):column + 60]!r}"
+        raise SystemExit(f"refusing to write {path}: malformed XML -- {err}{context}")
+
+    path.write_text(markup, encoding="utf-8")
 
 
 def reveal(element: str, begin: float, dur: float = 0.5) -> str:

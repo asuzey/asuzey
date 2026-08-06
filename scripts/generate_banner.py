@@ -26,7 +26,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from theme import PAL, FONT, esc, reveal, gradient_defs, window_chrome  # noqa: E402
+from theme import (PAL, FONT, esc, reveal, gradient_defs,  # noqa: E402
+                   window_chrome, write_svg)
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "assets" / "banner"
@@ -166,17 +167,6 @@ def background(p: dict) -> str:
              f'stroke="{p["border"]}" stroke-width="1.5"/>')
     s.append(f'<rect x="1.5" y="1.5" width="{W-3}" height="{H-3}" rx="23" fill="none" '
              f'stroke="url(#shimmer)" stroke-width="1.5" opacity=".75"/>')
-    return "".join(s)
-
-
-def window_chrome(p: dict, x: int, y: int, w: int, h: int, title: str) -> str:
-    s = [f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="18" fill="{p["panel"]}" '
-         f'stroke="{p["border"]}"/>',
-         f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="18" fill="url(#glass)"/>']
-    for i, color in enumerate(("#FF6F72", "#FFC56E", "#6FE39B")):
-        s.append(f'<circle cx="{x + 24 + i * 20}" cy="{y + 24}" r="5.5" fill="{color}" opacity=".9"/>')
-    s.append(f'<text x="{x + w / 2:.0f}" y="{y + 29}" text-anchor="middle" font-size="12" '
-             f'fill="{p["muted"]}">{title}</text>')
     return "".join(s)
 
 
@@ -463,7 +453,7 @@ def main() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     for mode in ("dark", "light"):
         target = OUT_DIR / f"{mode}.svg"
-        target.write_text(build(mode), encoding="utf-8")
+        write_svg(target, build(mode))
         print(f"wrote {target.relative_to(ROOT)} ({target.stat().st_size / 1024:.1f} KB)")
     if SHOW_GRID:
         print("\ntuning ruler is ON -- open the SVG, read the offsets you want,")

@@ -19,7 +19,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from theme import PAL, FONT, esc, reveal, gradient_defs, window_chrome  # noqa: E402
+from theme import (PAL, FONT, esc, esc_literal, reveal, gradient_defs,  # noqa: E402
+                   window_chrome, write_svg)
 
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "assets" / "ascii" / "sakura.txt"
@@ -122,7 +123,9 @@ def blossom(p: dict, lines: list[str]) -> str:
              'calcMode="spline" keyTimes="0;0.5;1" '
              'keySplines="0.4 0 0.2 1;0.4 0 0.2 1"/>')
     for i, line in enumerate(lines):
-        text = esc(line).replace(" ", "&#160;")
+        # esc_literal, not esc: the ramp contains "&#", which the entity-aware
+        # version would turn back into a broken entity and kill the whole SVG.
+        text = esc_literal(line).replace(" ", "&#160;")
         s.append(
             f'<text x="{ART_X}" y="{ART_TOP + i * LINE_H:.0f}" font-size="{ART_SIZE}" '
             f'xml:space="preserve" fill="url(#sak)" filter="url(#tiny)" opacity="0">'
@@ -187,7 +190,7 @@ def main() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     for mode in ("dark", "light"):
         target = OUT_DIR / f"{mode}.svg"
-        target.write_text(build(mode, lines), encoding="utf-8")
+        write_svg(target, build(mode, lines))
         print(f"wrote {target.relative_to(ROOT)} ({target.stat().st_size / 1024:.1f} KB)")
 
 

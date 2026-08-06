@@ -26,7 +26,8 @@ from datetime import date, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from theme import PAL, FONT, esc, reveal, gradient_defs, window_chrome  # noqa: E402
+from theme import (PAL, FONT, esc, reveal, gradient_defs,  # noqa: E402
+                   window_chrome, write_svg)
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "assets" / "stats"
@@ -303,7 +304,7 @@ def main() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     for mode in ("dark", "light"):
         target = OUT_DIR / f"{mode}.svg"
-        target.write_text(build(mode, data), encoding="utf-8")
+        write_svg(target, build(mode, data))
         print(f"wrote {target.relative_to(ROOT)} ({target.stat().st_size / 1024:.1f} KB)")
     print(f"  {data['contributions']} contributions, {data['current_streak']}d streak, "
           f"{data['stars']} stars, {len(data['languages'])} languages")
