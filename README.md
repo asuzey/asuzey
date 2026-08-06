@@ -96,8 +96,9 @@ Currently rebuilding my C# / Unity foundation and learning PHP with Laravel.
 ### ⋆ what i've been up to
 
 <!--START_SECTION:activity-->
-1. &#127793; Created branch `main` in [asuzey/asuzey](https://github.com/asuzey/asuzey)
-2. &#11088; Starred [cemdenizexe/cemdenizexe](https://github.com/cemdenizexe/cemdenizexe)
+1. &#11014;&#65039; Pushed 0 commits to [asuzey/asuzey](https://github.com/asuzey/asuzey)
+2. &#127793; Created branch `main` in [asuzey/asuzey](https://github.com/asuzey/asuzey)
+3. &#11088; Starred [cemdenizexe/cemdenizexe](https://github.com/cemdenizexe/cemdenizexe)
 <!--END_SECTION:activity-->
 
 <p align="center">
