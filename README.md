@@ -28,7 +28,7 @@ Currently rebuilding my C# / Unity foundation and learning PHP with Laravel.
 <pre>
             へ  ♡
        ૮  &gt;  &lt;)
-        /  ⁻  ៸|
+        /  ⁻ ៸|
      乀(ˍ, ل ل
 </pre>
 
