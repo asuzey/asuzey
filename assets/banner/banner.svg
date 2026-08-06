@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-labelledby="title desc">
+  <title id="title">ASU developer profile banner</title>
+  <desc id="desc">A dark terminal-inspired banner with green matrix code, ASU lettering and a small cat.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#080d12"/>
+      <stop offset="0.52" stop-color="#0d1920"/>
+      <stop offset="1" stop-color="#07110d"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" x2="1">
+      <stop stop-color="#39ff88" stop-opacity="0"/>
+      <stop offset="0.22" stop-color="#39ff88" stop-opacity=".8"/>
+      <stop offset="0.78" stop-color="#39ff88" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#39ff88" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse">
+      <path d="M38 0H0V38" fill="none" stroke="#70ffab" stroke-opacity=".06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="340" rx="14" fill="url(#background)"/>
+  <rect width="1200" height="340" rx="14" fill="url(#grid)"/>
+  <g fill="#39ff88" font-family="monospace" font-size="13" opacity=".34">
+    <text x="44" y="62">01001001 01000010 01001001 01001110</text>
+    <text x="76" y="90">typescript 101001 python 01010</text>
+    <text x="20" y="118">01101000 docker 11001 react 001101</text>
+    <text x="102" y="146">git push --all 01010 next.js 001</text>
+    <text x="28" y="174">01010101 automation 01000110</text>
+    <text x="72" y="202">csharp 100101 unity 01100110</text>
+    <text x="26" y="230">laravel 01010 build 01010010</text>
+    <text x="92" y="258">00101010 api 01011100 system</text>
+  </g>
+  <path d="M0 286H1200" stroke="url(#line)"/>
+  <path d="M486 32V259" stroke="#39ff88" stroke-opacity=".16"/>
+  <path d="M498 32V259" stroke="#39ff88" stroke-opacity=".06"/>
+  <g transform="translate(540 74)">
+    <text x="0" y="0" fill="#a4ffca" font-family="monospace" font-size="14" letter-spacing="3">// HELLO, I'M</text>
+    <text x="-5" y="88" fill="#e6fff0" font-family="monospace" font-size="90" font-weight="700" letter-spacing="8" filter="url(#glow)">ASU</text>
+    <path d="M0 111H490" stroke="#39ff88" stroke-opacity=".7"/>
+    <text x="0" y="143" fill="#c4d5ca" font-family="monospace" font-size="16">building practical software</text>
+    <text x="0" y="169" fill="#c4d5ca" font-family="monospace" font-size="16">with AI, automation &amp; modern web tech.</text>
+    <text x="0" y="217" fill="#39ff88" font-family="monospace" font-size="14">asu@github:~$ <tspan fill="#effff4">ship --with-intent</tspan><tspan fill="#39ff88"> ✓</tspan></text>
+  </g>
+  <g transform="translate(366 211)" fill="none" stroke="#91ffbd" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 52V23L12 0l13 17h28L66 0l12 23v29c0 19-17 32-39 32S0 71 0 52Z"/>
+    <path d="M25 46h1M52 46h1M35 60c3 3 6 3 9 0M13 62l-17 7M65 62l17 7"/>
+  </g>
+  <text x="1116" y="316" fill="#83a58e" font-family="monospace" font-size="11" text-anchor="end">generated locally • 2026</text>
+</svg>
