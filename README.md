@@ -101,9 +101,9 @@ Currently rebuilding my C# / Unity foundation and learning PHP with Laravel.
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/asuzey/asuzey/output/snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/asuzey/asuzey/output/snake-light.svg">
-    <img src="https://raw.githubusercontent.com/asuzey/asuzey/output/snake-dark.svg" alt="Contribution snake" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/snake/dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/snake/light.svg">
+    <img src="assets/snake/dark.svg" alt="Contribution snake" width="100%">
   </picture>
 </p>
 
