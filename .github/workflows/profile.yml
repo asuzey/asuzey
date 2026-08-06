@@ -28,12 +28,17 @@ jobs:
         with:
           python-version: "3.12"
 
+      # Neither step is allowed to fail the job. A transient API hiccup should
+      # leave the previous card in place, not turn the profile red and block
+      # the other step from running.
       - name: Redraw the stats card
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/generate_stats.py
 
       - name: Rewrite the recent-activity list
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/update_activity.py
