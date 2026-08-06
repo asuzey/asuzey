@@ -64,7 +64,11 @@ def describe(event: dict, extra_commits: int = 0) -> str | None:
     payload = event.get("payload", {})
 
     if kind == "PushEvent":
-        count = payload.get("size", 0) + extra_commits
+        # A push that moves a ref without carrying commits reports size 0, and
+        # "Pushed 0 commits" is not worth a line.
+        count = max(payload.get("size", 0), payload.get("distinct_size", 0)) + extra_commits
+        if count == 0:
+            return None
         branch = payload.get("ref", "").rsplit("/", 1)[-1]
         plural = "commit" if count == 1 else "commits"
         where = f" on `{branch}`" if branch and branch not in ("main", "master") else ""
@@ -115,9 +119,8 @@ def describe(event: dict, extra_commits: int = 0) -> str | None:
     if kind == "ForkEvent":
         return f"&#127860; Forked {repo_link(repo)}"
 
-    if kind == "WatchEvent":
-        return f"&#11088; Starred {repo_link(repo)}"
-
+    # WatchEvent (starring a repo) is deliberately not listed. ASU removed it
+    # by hand once; without this the job would just put it back every run.
     return None
 
 
