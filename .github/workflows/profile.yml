@@ -4,10 +4,16 @@ name: profile
 # generated in this repo rather than fetched from a third-party image service,
 # so the profile can never show a broken card because someone else's server is
 # rate limited.
+# Hourly, plus every push. A push refresh matters because GitHub's scheduler
+# is best-effort: cron runs are routinely late and are sometimes skipped
+# outright, so the card should never depend on the timer alone.
 on:
   schedule:
-    - cron: "17 */3 * * *"
+    - cron: "17 * * * *"
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 # One run at a time. Overlapping runs used to race each other on git push.
 concurrency:

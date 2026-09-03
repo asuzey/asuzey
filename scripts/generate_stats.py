@@ -263,6 +263,7 @@ def build(mode: str, data: dict) -> str:
     return "".join([
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="100%" '
         f'role="img" aria-label="GitHub statistics for {LOGIN}" font-family="{FONT}">',
+        '<!--placeholder-->' if data.get("placeholder") else '',
         defs(p, mode),
         background(p),
         window_chrome(p, x, y, w, h, f"asu@webcore: ~/stats"),
@@ -294,20 +295,33 @@ def placeholder() -> dict:
     }
 
 
+def holds_real_figures(target: Path) -> bool:
+    """True if this file is a card built from the API rather than the stand-in."""
+    return target.exists() and "<!--placeholder-->" not in target.read_text(
+        encoding="utf-8", errors="replace")
+
+
 def main() -> None:
-    if "--placeholder" in sys.argv:
-        data = placeholder()
+    stand_in = "--placeholder" in sys.argv
+    data = placeholder() if stand_in else summarise(fetch())
+    if stand_in:
         print("rendering the placeholder card (no API call)")
-    else:
-        data = summarise(fetch())
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     for mode in ("dark", "light"):
         target = OUT_DIR / f"{mode}.svg"
+        # Regenerating the placeholder must never wipe out real numbers. It has
+        # happened once already: a routine "rebuild every asset" pass replaced
+        # a freshly fetched card with a row of dashes.
+        if stand_in and holds_real_figures(target):
+            print(f"kept {target.relative_to(ROOT)} -- it already has real figures")
+            continue
         write_svg(target, build(mode, data))
         print(f"wrote {target.relative_to(ROOT)} ({target.stat().st_size / 1024:.1f} KB)")
-    print(f"  {data['contributions']} contributions, {data['current_streak']}d streak, "
-          f"{data['stars']} stars, {len(data['languages'])} languages")
+
+    if not stand_in:
+        print(f"  {data['contributions']} contributions, {data['current_streak']}d streak, "
+              f"{data['stars']} stars, {len(data['languages'])} languages")
 
 
 if __name__ == "__main__":
