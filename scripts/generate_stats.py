@@ -160,6 +160,10 @@ def summarise(user: dict) -> dict:
         "current_streak": current,
         "longest_streak": longest,
         "languages": languages,
+        # Kept whole so the heatmap can be drawn from the same fetch.
+        "calendar": [[(day["date"], day["contributionCount"])
+                      for day in week["contributionDays"]]
+                     for week in calendar["weeks"]],
     }
 
 
@@ -292,6 +296,7 @@ def placeholder() -> dict:
         "followers": "-", "current_streak": "-", "longest_streak": "-",
         "prs": "-", "issues": "-", "placeholder": True,
         "languages": [("waiting for the first run", 1.0, None)],
+        "calendar": [],
     }
 
 

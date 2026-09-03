@@ -90,7 +90,11 @@ Currently rebuilding my C# / Unity foundation and learning PHP with Laravel.
 </p>
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=asuzey&custom_title=commits%20over%20time&bg_color=0C1428&color=8FA8C8&title_color=7FE7DF&line=6FB8FF&point=7FE7DF&area=true&area_color=6FB8FF&hide_border=true&radius=12" alt="Contribution graph" width="100%">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/graph/dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/graph/light.svg">
+    <img src="assets/graph/dark.svg" alt="A year of contributions" width="100%">
+  </picture>
 </p>
 
 ### ⋆ what i've been up to
