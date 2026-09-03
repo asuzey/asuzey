@@ -1,21 +1,24 @@
 name: profile
 
-# Redraws the stats card and rewrites the recent-activity list. Both are
-# generated in this repo rather than fetched from a third-party image service,
-# so the profile can never show a broken card because someone else's server is
-# rate limited.
-# Hourly, plus every push. A push refresh matters because GitHub's scheduler
-# is best-effort: cron runs are routinely late and are sometimes skipped
-# outright, so the card should never depend on the timer alone.
+# Everything the profile regenerates lives in this one workflow: the snake, the
+# stats card and the recent-activity list. They were split across two files,
+# and only the snake's schedule ever fired -- the stats card sat untouched for
+# a month while the snake redrew daily, so the follower and contribution
+# figures on the profile were stale. Sharing a schedule that demonstrably
+# works is worth more than keeping the jobs separate.
 on:
   schedule:
+    # This exact shape has fired every single day on this repo.
+    - cron: "0 3 * * *"
+    # An hourly attempt on top. GitHub drops short-interval schedules under
+    # load, so this is a bonus rather than something to rely on.
     - cron: "17 * * * *"
   workflow_dispatch:
+  # The dependable one: a push refreshes everything immediately.
   push:
     branches:
       - main
 
-# One run at a time. Overlapping runs used to race each other on git push.
 concurrency:
   group: profile
   cancel-in-progress: false
@@ -23,7 +26,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     permissions:
       contents: write
 
@@ -34,9 +37,17 @@ jobs:
         with:
           python-version: "3.12"
 
-      # Neither step is allowed to fail the job. A transient API hiccup should
-      # leave the previous card in place, not turn the profile red and block
-      # the other step from running.
+      # No step may fail the job. If one source is having a bad day the others
+      # still refresh, and the previous version of the failed one stays put.
+      - name: Draw the contribution snake
+        continue-on-error: true
+        uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            assets/snake/dark.svg?palette=github-dark&color_snake=#6FB8FF&color_dots=#0C1428,#1E3A5F,#3E7BB8,#6FB8FF,#7FE7DF
+            assets/snake/light.svg?palette=github-light&color_snake=#2F7FE8
+
       - name: Redraw the stats card
         continue-on-error: true
         env:
@@ -51,12 +62,12 @@ jobs:
 
       - name: Commit only if something actually changed
         run: |
-          if [ -z "$(git status --porcelain)" ]; then
+          if [ -z "$(git status --porcelain README.md assets/stats assets/snake)" ]; then
             echo "nothing to update"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md assets/stats
-          git commit -m "chore: refresh profile stats and activity"
+          git add README.md assets/stats assets/snake
+          git commit -m "chore: refresh the profile"
           git push
