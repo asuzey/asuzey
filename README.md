@@ -100,7 +100,7 @@ Currently rebuilding my C# / Unity foundation and learning PHP with Laravel.
 ### ⋆ what i've been up to
 
 <!--START_SECTION:activity-->
-1. &#127793; Created branch `main` in [asuzey/asuzey](https://github.com/asuzey/asuzey)
+_Nothing public yet -- check back soon._
 <!--END_SECTION:activity-->
 
 <p align="center">
