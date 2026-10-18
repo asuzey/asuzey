@@ -11,6 +11,7 @@
 <p align="center">
   <a href="https://github.com/asuzey"><img src="https://img.shields.io/badge/GitHub-asuzey-0C1428?style=flat-square&logo=github&logoColor=6FB8FF" alt="GitHub" /></a>
   <img src="https://komarev.com/ghpvc/?username=asuzey&style=flat-square&color=6FB8FF&label=profile+views" alt="Profile views" />
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=asuzey.asuzey&left_color=%23555555&right_color=%236FB8FF&left_text=visitors" alt="Visitors" />
 </p>
 
 <p align="center">──･｡☆*☽*☆.──</p>
