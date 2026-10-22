@@ -101,7 +101,12 @@ Currently rebuilding my C# / Unity foundation and learning PHP with Laravel.
 ### ⋆ what i've been up to
 
 <!--START_SECTION:activity-->
-_Nothing public yet -- check back soon._
+1. &#127860; Forked [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo)
+2. &#127860; Forked [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)
+3. &#127860; Forked [anthropics/skills](https://github.com/anthropics/skills)
+4. &#127860; Forked [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify)
+5. &#127860; Forked [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail)
+6. &#127860; Forked [Jakeschincariol/replica-skill](https://github.com/Jakeschincariol/replica-skill)
 <!--END_SECTION:activity-->
 
 <p align="center">
