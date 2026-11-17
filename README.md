@@ -101,12 +101,12 @@ Currently rebuilding my C# / Unity foundation and learning PHP with Laravel.
 ### ⋆ what i've been up to
 
 <!--START_SECTION:activity-->
-1. &#127860; Forked [freshtechbro/claudedesignskills](https://github.com/freshtechbro/claudedesignskills)
-2. &#127860; Forked [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)
-3. &#127860; Forked [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
-4. &#127860; Forked [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo)
-5. &#127860; Forked [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)
-6. &#127860; Forked [anthropics/skills](https://github.com/anthropics/skills)
+1. &#127793; Created branch `main` in [asuzey/Web-CRUD-Project](https://github.com/asuzey/Web-CRUD-Project)
+2. &#127860; Forked [freshtechbro/claudedesignskills](https://github.com/freshtechbro/claudedesignskills)
+3. &#127860; Forked [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)
+4. &#127860; Forked [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
+5. &#127860; Forked [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo)
+6. &#127860; Forked [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)
 <!--END_SECTION:activity-->
 
 <p align="center">
