@@ -104,9 +104,6 @@ Currently rebuilding my C# / Unity foundation and learning PHP with Laravel.
 1. &#127793; Created branch `main` in [asuzey/Mini-Catalog-Flutter](https://github.com/asuzey/Mini-Catalog-Flutter)
 2. &#127793; Created branch `main` in [asuzey/TaskFlow-Backend](https://github.com/asuzey/TaskFlow-Backend)
 3. &#127793; Created branch `main` in [asuzey/Web-CRUD-Project](https://github.com/asuzey/Web-CRUD-Project)
-4. &#127860; Forked [freshtechbro/claudedesignskills](https://github.com/freshtechbro/claudedesignskills)
-5. &#127860; Forked [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)
-6. &#127860; Forked [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
 <!--END_SECTION:activity-->
 
 <p align="center">
